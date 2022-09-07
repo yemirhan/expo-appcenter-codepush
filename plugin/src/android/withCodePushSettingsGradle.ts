@@ -7,7 +7,7 @@ project(':react-native-code-push').projectDir = new File(rootProject.projectDir,
 const modifySettingsGradle = (contents: string): string => {
   if (!contents.includes(settingsString)) {
     contents = `${contents}
-    ${settingsString}`
+${settingsString}`
   }
   return contents;
 }
