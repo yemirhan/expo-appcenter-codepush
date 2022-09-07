@@ -1,11 +1,10 @@
 import { ConfigPlugin, withPlugins } from "@expo/config-plugins";
-import {
-  AndroidProps,
-  withAndroidAppCenterConfigFile,
-} from "./android";
 import { WithCodePushStringXML } from "./android/updateStringsXml";
+import withCodePushAppBuildGradle from "./android/withCodePushBuildGradle";
+import withCodePushMainApplication from "./android/withCodePushMainApplication";
+import withCodePushSettingsGradle from "./android/withCodePushSettingsGradle";
+import { withCodePushAppDelegate } from "./ios/appDelegate";
 
-import { withCodePushAppDelegate,  } from "./ios";
 import { codePushInfoPlist } from "./ios/codePushInfoPlist";
 interface Keys {
   production: string;
@@ -19,11 +18,11 @@ interface PluginProps {
 }
 
 /**
- * A config plugin for configuring `appcenter`
+ * A config plugin for configuring `appcenter-codepush`
  */
-const withAppCenter: ConfigPlugin<PluginProps> = (
+const withAppCenterCodePush: ConfigPlugin<PluginProps> = (
   config,
- props
+  props
 ) => {
   return withPlugins(config, [
     // iOS
@@ -32,13 +31,15 @@ const withAppCenter: ConfigPlugin<PluginProps> = (
       codePushInfoPlist,
       props.iosKeys ? props.iosKeys[props.type] || "" : "",
     ],
+    // Android
     [
       WithCodePushStringXML,
       props.androidKeys ? props.androidKeys[props.type] || "" : "",
-    ]
-    // Android
-    
+    ],
+    withCodePushSettingsGradle,
+    withCodePushAppBuildGradle,
+    withCodePushMainApplication
   ]);
 };
 
-export default withAppCenter;
+export default withAppCenterCodePush;
