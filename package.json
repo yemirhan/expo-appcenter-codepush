@@ -1,10 +1,10 @@
 {
   "name": "expo-appcenter-codepush",
   "version": "0.1.1",
-  "description": "Expo plugin for react native CodePush SDK",
+  "description": "Expo plugin for React Native CodePush SDK",
   "main": "app.plugin.js",
   "repository": "git@github.com:yemirhan/expo-appcenter-codepush.git",
-  "author": "FRizzonelli <fabrizio.rizzonelli@gmail.com>",
+  "author": "Yusuf Emirhan Şahin <syusufemirhan@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/yemirhan/expo-appcenter-codepush#readme",
   "bugs": {

@@ -4,9 +4,6 @@ import {
   withStringsXml,
 } from "@expo/config-plugins";
 
-/**
- * Update `res/values/strings.xml` by adding appcenter config strings
- */
 export const WithCodePushStringXML: ConfigPlugin<string> = (config, codePushKey) => {
   return withStringsXml(config, (config) => {
     config.modResults = setStrings(

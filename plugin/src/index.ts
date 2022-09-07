@@ -6,15 +6,10 @@ import withCodePushSettingsGradle from "./android/withCodePushSettingsGradle";
 import { withCodePushAppDelegate } from "./ios/appDelegate";
 
 import { codePushInfoPlist } from "./ios/codePushInfoPlist";
-interface Keys {
-  production: string;
-  development: string;
-  staging: string;
-}
 interface PluginProps {
-  type: "production" | "staging" | "development";
-  iosKeys?: Keys;
-  androidKeys?: Keys;
+  type: string;
+  iosKeys?: Record<string,string>;
+  androidKeys?: Record<string,string>;
 }
 
 /**

@@ -1,9 +1,5 @@
 import fs from 'fs/promises';
-import { ExpoConfig } from '@expo/config-types';
-import { AndroidConfig, ConfigPlugin, withAppBuildGradle, withDangerousMod, withMainApplication, withSettingsGradle } from "@expo/config-plugins";
-
-const mainApp = `apply from: "../../node_modules/react-native/react.gradle"
-apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"`
+import { AndroidConfig, ConfigPlugin, withDangerousMod } from "@expo/config-plugins";
 
 const codePushImport = "import com.microsoft.codepush.react.CodePush;"
 const bundleOverride = `@Override
